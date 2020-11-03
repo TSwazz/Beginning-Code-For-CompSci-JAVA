@@ -1,0 +1,35 @@
+//Problem Parameters
+//Write a program with a method that calls itself 
+//N times where the method prints There is a version of recursion. each time it is called. 
+//The main method appears below and you MUST use this main method without altering it. 
+//Also NOTE YOU CANNOT USE a while, do...while, 
+//or for loop, you must use recursion.
+
+//Answer 
+
+import java.util.Scanner;
+public class Warmup
+{
+  public static void main(String[] args)
+  {
+     Scanner input = new Scanner(System.in);
+     System.out.println("Enter number of times to repeat:");
+
+     int N = input.nextInt();
+     versionOfRecursion(N);
+  }
+  
+   public static int versionOfRecursion(int N)
+{
+    
+    if (0 < N)
+    {
+   System.out.println("There is a version of recursion.");
+   versionOfRecursion(N-1);
+    }
+    return 0;
+   }
+}
+
+
+
