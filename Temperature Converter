@@ -1,0 +1,17 @@
+//Problem Parameters
+//Write a Celsius to Fahrenheit table program that displays Celsius temperatures from 0 to 100 and their corresponding temperatures in Fahrenheit.
+//Answer 
+
+import java.util.Scanner;
+public class TemperatureConverter
+{
+  public static void main(String args[])
+  {
+        Scanner input = new Scanner(System.in);
+        int C = 0; 
+    while (C < 101 ) {
+       double F = (C * (9f / 5)) + 32;
+      System.out.print(C+ " ");
+      System.out.println(String.format("%.2f", F));
+      C++; 
+    }
