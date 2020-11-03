@@ -1,0 +1,23 @@
+//Problem Parameters
+//Write a program that accepts an integer n and prints a right triangle with base and height n. Use nested for loops
+//Answer 
+
+import java.util.Scanner;
+public class RightTriangle
+{
+  public static void main(String[] args)
+  {
+   Scanner input = new Scanner(System.in);
+   System.out.println("*****Right Triangle Printer*****");
+   System.out.println("Enter base/height of triangle: ");
+   int base_height = input.nextInt();
+  for (int x = 1; x <= base_height; x++)
+        {
+            for (int i = 1; i <= x; i++)
+            {
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+    }
+}
