@@ -1,0 +1,84 @@
+//Problem Parameters
+//Write a RECURSIVE method:
+//public static void reverse int (int[] array, int lo, int hi)
+//that reverses the elements in an array. The parameter lo is the index of the first value in array and hi is the index of the last value in array.
+//Assume lo <= hi.
+//For example, if array is:
+//[5,6,7,8,9] 
+//and we call reverse(a,0,4) then the array is rearranged as:
+//[9,8,7,6,5]
+//The method may NOT use an other arrays other than the one passed in as array. Here is a sketch of the algorithm:
+// base case: single element 
+if (hi == lo)
+   return;
+// base case: two elements
+if (hi - lo == 1)
+{
+    swap the elements in array[lo] and array[hi]
+  return;
+}
+// recursive case: lots of array left to reverse 
+//else
+//{          
+//   swap the elements in array[lo] and array[hi] (first and last elements)
+//   reverse the sub-array indexed by lo+1 and hi-1
+/}
+//Suppose array is [4,5,6,7,8,9] and we call reverse(array,0,5) then the algorithm:
+//swaps 4 and 9 to give us [9,5,6,7,8,4]
+//recursively reverse the sub-array [5,6,7,8]
+//Remember: to swap two values you need to use a temporary variable.
+//Your main program should:
+//ask the size of the array (if it is n, then the last element is a[n-1])
+//create an array of size n
+//read values into array
+//call reverse(array,0, n-1) // lo == 0, hi == n-1
+//display the array
+
+//Answer 
+
+import java.util.Scanner;
+public class Reverse
+{
+  public static void reverse(int arr[], int start, int end) 
+  {
+      int temp;
+    
+      if(start >= end)
+        return;
+      
+      temp = arr[start];
+      arr[start] = arr[end];
+      arr[end] = temp;
+
+      //Recursively call
+      reverse(arr, start+1, end-1);
+   }
+ 
+  public static void main(String args[])
+  {
+       Scanner in = new Scanner(System.in);
+
+       System.out.println("***** Reverse *****");
+       System.out.println("Enter array size: ");
+       int n = in.nextInt();
+
+       int arr[] =  new int[n];
+
+       System.out.println("Enter array values: ");
+        
+       //Input array values
+       for(int i = 0; i < n; i++)
+       {
+          arr[i] = in.nextInt();
+       }
+
+       reverse(arr, 0, n-1);
+       
+       System.out.println("After reverse array is: ");
+
+       for(int i = 0; i < n; i++) 
+       {
+          System.out.print(arr[i]+ " ");
+       }
+}
+}
