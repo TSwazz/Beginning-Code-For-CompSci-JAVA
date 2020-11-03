@@ -1,0 +1,57 @@
+//Problem Parameters
+//The rules of a certain carnival game stipulate that a player throws one standard 6-sided die, 
+//one 20-sided die (with 1 to 20 spots), one 8-sided die (with 1 to 8 spots), one 4-sided die (1 to 4 spots), 
+//and one 12-sided die (1 to 12 spots). The player wins if the total on the five dice is greater than 35 or less 
+//than 20. Write a program that simulates the carnival game 100 times and reports the number of times a player wins. 
+//Your program should include a method:
+//int rollDie(int sides)
+//that returns a random number between 1 and sides. For example if you were to do this:
+//System.out.println(rollDie(10));
+//the program would output a number between 1 and 10.
+
+//Answer
+
+import java.util.*;
+public class Carnival
+{  
+  // dieRoll method
+  public static int dieRoll(int sides)
+{
+  Random rand = new Random();
+  return 1 + rand.nextInt(sides);
+}
+  // beginning of the main program 
+  public static void main(String [] args)
+  {
+    System.out.println("***** Carnival *****");
+    int totalWins = 0;
+    
+    for (int i = 0; i <100; i++)
+    {
+      int sumOfGames = 0;
+      
+      sumOfGames = sumOfGames + dieRoll(4); //die with 4 sides
+      sumOfGames = sumOfGames + dieRoll(6); //die with 6 sides
+      sumOfGames = sumOfGames + dieRoll(8); //die with 8 sides
+      sumOfGames = sumOfGames + dieRoll(12); //die with 12 sides
+      sumOfGames = sumOfGames + dieRoll(20); //die with 20 sides
+      
+      // sum < 20 && sum > 35 is a win
+      //totalWins++
+      
+      if (sumOfGames < 20 || (sumOfGames >35))
+      {
+        totalWins++; 
+        System.out.println(sumOfGames+ " win");
+      }
+  else
+  {
+    System.out.println(sumOfGames+ " loss");
+  }
+  
+    }
+    System.out.println("Number times player wins: " +totalWins);
+  }
+}
+// end of main program 
+
