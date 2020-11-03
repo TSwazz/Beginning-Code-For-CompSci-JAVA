@@ -1,0 +1,95 @@
+//Problem Parameters
+//Consider an iterative procedure that begins with a positive integer N0 and generates a sequence by the rule:
+//Ni+1 = the sum of the squares of the digits of Ni.
+//For example, if you begin with 25 the sequence is
+//25 
+//29 (since 29 = 2*2 + 5*5)  
+//85 (since 85 = 2*2 + 9*9)  
+//89 (89 = 8*8 + 5*5) etc.
+//(a) if any term in the sequence equals 1, then all successive terms are 1
+//(b) if any term in the sequence equals 58, then the sequence cycles:
+//…, 58, 89, 145, 42, 20, 4, 16, 37, 58, 89, 145…..
+//It is known that either condition a or b MUST occur.
+//An integer N0 is called insipid if condition (a) occurs.
+//Write a program to test for insipid integers between 1 and 99. Your program will prompt the user for a number from 1 to 99. 
+//It will then print out the sequence as described above and tell whether the number is insipid or not.
+//Hint: You will need to separate the digits of a number of at most three digits. Use / and %. 
+//The largest number you will have is a three digit number. Think about it!
+
+//Answer 
+
+import java.util.Scanner;
+public class Insipid
+{
+   public static int userThreeNumberSquared(int number)
+    {
+       int digit1 = number % 10;
+       int digit2 = (number % 100)/10;
+       int digit3 = number / 100;
+      
+       int digitSquared1 = (digit1 * digit1);
+       int digitSquared2 = (digit2 * digit2);
+       int digitSquared3 = (digit3 * digit3);
+         
+       int nextNumber = (digitSquared1 + digitSquared2 + digitSquared3);
+       return nextNumber; 
+   }
+  
+  public static int userTwoNumberSquared(int number)
+    {
+       int digit1 = number % 10;
+       int digit2 = number / 10;
+      
+       int digitSquared1 = (digit1 * digit1);
+       int digitSquared2 = (digit2 * digit2);
+         
+       int nextNumber = (digitSquared1 + digitSquared2);
+       return nextNumber; 
+   }
+  public static void main(String args[])
+  {
+
+     Scanner input = new Scanner(System.in);
+    int choices = 0;
+    do {
+      
+    System.out.println("Enter number:"); 
+     int number = input.nextInt();
+     
+    int nextNumber = number; 
+    
+    
+     System.out.print("The sequence starting at " +number+ " is: " +nextNumber);
+ 
+    
+   while (nextNumber > 0 && (nextNumber <= 99))
+   {
+   nextNumber = userTwoNumberSquared (nextNumber); 
+
+    System.out.print(" " +nextNumber);
+     
+      if (nextNumber == 58)
+    {
+      System.out.println(""); 
+      System.out.println("Not insipid.");
+        break;
+    }
+     if (nextNumber == 1)
+     {
+       System.out.println("");
+       System.out.println("Insipid.");
+        break;
+     }
+     if (nextNumber > 99)
+     {
+    nextNumber = userThreeNumberSquared (nextNumber); 
+
+    System.out.print(" " +nextNumber);
+     }
+  
+   }
+      System.out.println("Run again (0=no; 1=yes):?");
+      choices = input.nextInt();
+    } while (choices == 1);      
+   }
+}
