@@ -1,0 +1,155 @@
+//Problem Parameters
+//There is only one ten-digit number that contains every digit 0 through 9 exactly once, 
+//and has the property that each number formed from the leftmost j digits is divisible by j.
+//For example, the number 9876543210 is close but does not qualify. The number contains each 
+//digit once, the first digit 9 is divisible by 1, the number 98 is divisible by 2, 987 is divisible 
+//by 3, 9876 is divisible by 4, 98765 is divisible by 5, and 987654 is divisible by 6. 
+//However, the number 9876543 is not divisible by 7. Note that 98765432 is divisible by 8, 
+//987654321 is divisible by 9, and 9876543210 is divisible by 10, so this number fails only because 9876543 
+//is not divisible by 7.
+
+//Write a program that accepts a 10-digit integer, n, containing each of the digits 0 through 9, and determines
+//how many such divisions can be performed.
+//For example, on input 9876543210 your program should report 9 divisions (only 9876543 fails); 
+//for 2159730648 the number of divisions is just 1; and for the number 3816547290 (and only this number) the result is 10.
+//Note: the largest value of data type int is 2^31 – 1 = 2,147,483,647, too small for many 10-digit numbers.
+//An integer of type long can be as large as 2^63 – 1.)
+
+//Answer 
+
+
+import java.util.Scanner;
+public class SpecialNumber
+{
+  public static void main(String[] args)
+  {
+    Scanner input = new Scanner(System.in);
+      System.out.println("***** Special Number Detector *****");
+        System.out.println("Enter ten digit number: ");
+          long special_number = input.nextLong();
+    
+    if ((special_number / 1000000000) %1 == 0)
+    {
+      long a = special_number / 1000000000;
+      System.out.println(a + " divisible by 1");
+    }
+    else 
+    {
+      long a = special_number / 1000000000;
+      System.out.println(a + " NOT divisible by 1");
+    }
+      
+    if ((special_number / 100000000) %2 == 0)
+    {
+      long b = special_number / 100000000;
+      System.out.println(b + " divisible by 2");
+    }
+    else
+    {
+      long b = special_number / 100000000;
+      System.out.println(b + " NOT divisible by 2"); 
+    }
+    
+    if ((special_number / 10000000) %3 == 0)
+    {
+      long c = special_number / 10000000;
+      System.out.println(c + " divisible by 3");
+    }
+    else 
+    {
+      long c = special_number / 10000000;
+      System.out.println(c + " NOT divisible by 3");
+    }
+    
+    if ((special_number / 1000000) %4 == 0)
+    {
+      long d = special_number / 1000000;
+      System.out.println(d + " divisible by 4");
+    }
+    else
+    {
+      long d = special_number / 1000000;
+      System.out.println(d + " NOT divisible by 4");
+    }
+    
+    if ((special_number / 100000) %5 == 0)
+    {
+      long e = special_number / 100000;
+      System.out.println(e + " divisible by 5");
+    }
+    else
+    {
+      long e = special_number / 100000;
+      System.out.println(e + " NOT divisible by 5");
+    }
+    
+    if ((special_number / 10000) %6 == 0)
+    {
+      long f = special_number / 10000; 
+      System.out.println(f + " divisible by 6");
+    }
+    else
+    {
+      long f = special_number / 10000;
+      System.out.println(f + " NOT divisible by 6");
+    }
+    
+    if ((special_number / 1000) %7 == 0)
+    {
+      long g = special_number / 1000;
+      System.out.println(g + " divisible by 7");
+    }
+    else
+    {
+      long g = special_number / 1000;
+      System.out.println(g + " NOT divisible by 7");
+    }  
+      
+    if ((special_number / 100) %8 == 0)
+    {
+      long h = special_number / 100;
+      System.out.println(h + " divisible by 8");
+    }
+    else
+    {
+      long h = special_number / 100;
+      System.out.println(h + " NOT divisible by 8");
+    }
+      
+    if ((special_number / 10) %9 == 0)
+    {
+      long i = special_number / 10;
+      System.out.println(i + " divisible by 9");
+    }
+    else
+    {
+      long i = special_number / 10;
+      System.out.println(i + " NOT divisible by 9");
+    }
+    
+    if ((special_number / 1) %10 == 0)
+    {
+      long j = special_number / 1;
+      System.out.println(j + " divisible by 10");
+    }
+    else
+    {
+      long j = special_number / 1;
+      System.out.println(j + " NOT divisible by 10");
+    }
+    
+    if (((special_number / 1000000000) %1 == 0) && ((special_number / 100000000) %2 == 0)
+       && ((special_number / 10000000) %3 == 0) && ((special_number / 1000000) %4 == 0)
+       && ((special_number / 100000) %5 == 0) && ((special_number / 10000) %6 == 0)
+       && ((special_number / 1000) %7 == 0) && ((special_number / 100) %8 == 0)
+       && ((special_number / 10) %9 == 0) && ((special_number / 1) %10 == 0)) 
+    {
+      System.out.println(special_number + " is special.");
+    }
+    else
+    {
+      System.out.println(special_number + " is not special.");
+    }
+    
+  }
+}
