@@ -1,0 +1,60 @@
+//Problem Parameters
+//There are many methods for extracting square roots, some of which go back to ancient times. Here is one such method:
+//choose a value n that you want to take the square root of
+//if n is a negative number, you program should respond accordingly i.e. issue an error message.
+//start your calculation with an initial guess or approximation. (You can use 1 but any other number is just as good).
+//call this first guess/approximation old
+//a next improved approximation is then:
+//next = (old + n/old)/2
+//call this new value old and repeat the process
+//stop computing next when you have two approximations in a row that agree up through the first four places after the decimal point. 
+//You can check this by looking at the absolute value of the difference. The absolute value of x can be obtained as Math.abs(x)
+//You should print out all the calculated approximations starting with 1 and ending with the final value. 
+//The data types for n, old, and next should be double. To make the autograder happy use the following print statement:
+//System.out.println(String.format("%.5f", x));
+//this will print out your variables out to five decimal places.
+//For example, the first few lines of output for n=2 are:
+//1.00000  <-- first guess or approximation
+//1.50000  <-- (1+[2/1])/2
+//1.41667  <-- (1.5+[2/1.5])/2
+//1.41422  <-- (1.41667+ [2/1.41667])/2
+//1.41421  <-- (1.41422 + [2/1.41422])/2
+
+//Answer 
+
+import java.util.Scanner;
+public class SquareRoot
+{
+	public static void main(String[] args) 
+  {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Enter n for square root of n:");
+    double n = input.nextDouble();
+  
+    if (n <=0)
+    {
+      System.out.println("Only enter a positive value for n.");
+    }
+    else
+    {
+      
+    
+    System.out.println("Enter initial guess: "); 
+    double old = input.nextDouble();
+  
+    // long n ?
+    System.out.println("The approximations are:");
+    while (n>=0)
+    {
+      double next = (old + n/old)/2;
+      System.out.println(String.format("%.5f", next));
+      if (((int) (old*10000) == ((int) (next*10000))))
+      {
+       break;
+      }
+      old = next;    
+    }
+    
+    }
+    }
+	}
