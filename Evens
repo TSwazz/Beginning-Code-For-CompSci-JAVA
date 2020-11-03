@@ -1,0 +1,59 @@
+//Problem Parameters
+//Write a program with a recursive method computeEvens that takes a number N (a) prints out the even 
+//numbers between n and 0 inclusive, (b) returns the number of even numbers between 0 and n inclusive, for any positive integer n.
+//For example if N is 9, then computeEvens prints out 8,6,4,2,0 and returns 5.
+//For example if N is 4, then computeEvens prints out 4,2,0 and returns 3.
+//For example if N is 21, then computeEvens prints out 20,18,16,14,12,10,8,6,4,2,0 and returns 11.
+//Some rules for computeEvens:
+//MUST be recursive
+//MUST use the main program below without alteration
+//MUST NOT use a while loop or for loop
+//MUST NOT call any method other than itself (e.g. no Math methods)
+//Make sure that you include a base case. What is the recursive case? Let the recursive case solve a simpler problem.
+
+
+
+
+//Answer 
+
+
+import java.util.Scanner;
+public class Evens
+{
+  //beginning of recursive method
+  public static int computeEvens(int N)
+  {
+    if (N == 0)
+    {
+      System.out.print("0 -> ");
+      return 1;
+    }
+    else if (N % 2 ==0)
+    {
+     System.out.print(N+(", "));
+     return 1 + computeEvens(N-2);
+    }
+    else
+    {
+     return computeEvens(N-1);
+    }
+  }
+  
+  public static int counter(int I)
+  {
+    I = I +1; 
+    return I; 
+  }
+  
+  
+  //beginning of main program
+	public static void main(String[] args)
+	{
+		 Scanner input = new Scanner(System.in);
+		 System.out.println("Enter number: ");
+		 int N = input.nextInt();
+
+		 System.out.print("Number of evens between 0 and number is: ");
+     System.out.println(computeEvens(N));
+	}
+}
