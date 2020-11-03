@@ -1,0 +1,28 @@
+//Problem Parameters
+//Write a program that calls a method that prints There is a method to this madness. 
+//The main method appears below and you MUST use this main method without altering it:
+
+//public static void main(String[] args)
+//{
+//    methodMadness();
+//}
+
+//Answer 
+
+public class Warmup
+{
+  public static void main(String args[])
+  {
+    
+    methodMadness();  
+    
+  }
+public static void methodMadness()
+{
+  for (int i = 0; i < 100; i ++)
+  {
+System.out.println("There is a method to this madness.");
+  }
+} 
+
+}
