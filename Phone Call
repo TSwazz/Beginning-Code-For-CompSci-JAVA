@@ -1,0 +1,46 @@
+//Problem Parameters
+//Write a program that calculates the cost of a long distance phone call. The calling rates are as follows:
+//Time	Cost/Minute
+//Day	      15
+//Evening     7
+//Weekend     5
+//Your program should accept the length of a call in minutes and the rate code (use integers 0,1, and 2). 
+//It will calculate the cost of a call. Your program should note any invalid data. (A switch statement would work well here. Use one.)
+
+//I did not use a switch in this :(
+
+//Answer 
+import java.util.Scanner;
+public class PhoneCall
+{
+  public static void main(String[] args)
+  {
+  Scanner input = new Scanner(System.in);
+    System.out.println("Enter the length of the call:");
+    int time_call = input.nextInt();
+   System.out.println("Enter the rate code:");
+    int rate_code = input.nextInt();
+    
+    if (rate_code == 0)
+    {
+      System.out.println("The cost of the call is $" +time_call *.15);
+    }
+      
+    else if (rate_code == 1)
+    {
+      System.out.println("The cost of the call is $" +time_call * .07);
+    }
+      
+    else if (rate_code == 2)
+    {
+      System.out.println("The cost of the call is $" +time_call * .05);
+    }
+    
+    else 
+    {
+      System.out.println("Illegal rate code.");
+    }
+    
+    
+  }
+}
