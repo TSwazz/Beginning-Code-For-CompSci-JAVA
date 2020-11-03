@@ -1,0 +1,55 @@
+//Problem Parameters
+//Write a digit to text converter for the digits 0 to 9. If the user enters the digit 0 then your converter prints out the string "zero".
+//Answer 
+import java.util.Scanner;
+public class DigitToTextConverter
+{
+  public static void main(String[] args)
+  {
+    Scanner input = new Scanner(System.in);
+  System.out.print("Welcome to the Digit to Text Converter!");
+    System.out.println("Enter your digit: ");
+      int user_digit = input.nextInt();
+    if (user_digit == 9)
+    {
+      System.out.println("You typed in the digit nine!");
+      }
+    else if (user_digit == 8)
+    {
+      System.out.println("You typed in the digit eight!");
+    }
+     else if (user_digit ==7)
+    {
+      System.out.println("You typed in the digit seven!");
+    }
+   else if (user_digit == 6)
+    {
+      System.out.println("You typed in the digit six!");
+    }
+   else if (user_digit == 5)
+    {
+      System.out.println("You typed in the digit five!");
+    }
+   else if (user_digit == 4)
+    {
+      System.out.println("You typed in the digit four!");
+    }
+  else if (user_digit == 3)
+    {
+      System.out.println("You typed in the digit three!");
+    }
+   else if (user_digit == 2)
+    {
+      System.out.println("You typed in the digit two!");
+    }
+   else if (user_digit == 1)
+    {
+      System.out.println("You typed in the digit one!");
+    }
+   else if (user_digit == 0)
+    {
+      System.out.println("You typed in the digit zero!");
+    }
+      System.out.println("Bye!");
+  }  
+    }
