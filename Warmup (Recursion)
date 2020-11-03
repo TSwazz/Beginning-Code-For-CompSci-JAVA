@@ -1,0 +1,49 @@
+//Problem Parameters
+//Write a program with a recursive method computeDigits that takes a number N and returns the number of digits in N. 
+//For example if N is 123, then computeDigits will return 3 and if N is 11111 then computeDigits returns 5. Some rules for computeDigits:
+//MUST be recursive
+//MUST use the main program below without alteration
+//MUST NOT use a while loop or for loop
+//MUST NOT call any method other than itself (e.g. no Math methods)
+
+//Answer
+
+public static void main(String[] args)
+{
+   Scanner input = new Scanner(System.in);
+   System.out.println("Enter number: ");
+   int N = input.nextInt();
+     
+   System.out.println("Number of digits: "+computeDigits(N));
+}
+Make sure that you include a base case. What is the recursive case? Let the recursive case solve a simpler problem.
+//Answer 
+
+import java.util.Scanner;
+public class Warmup
+{
+  //beginning of recursion
+  public static int computeDigits(int n)
+  {
+    if ( n == 0)
+    {
+      return 0;
+    }
+    else
+    {
+      return 1 + computeDigits (n / 10);
+    }
+    
+  }
+  
+  
+  //beginning of main method
+	public static void main(String[] args)
+	{
+		 Scanner input = new Scanner(System.in);
+		 System.out.println("Enter number: ");
+		 int N = input.nextInt();
+
+		 System.out.println("Number of digits: "+computeDigits(N));
+	}
+}
