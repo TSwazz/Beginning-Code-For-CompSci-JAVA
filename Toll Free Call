@@ -1,0 +1,34 @@
+//Problem Parameters
+//A 10-digit phone number that begins with either 800, 888, 877, or 866 is toll free. 
+//Write a program that reads in a 10-digit phone number and displays a message that states whether or not the number is toll free.
+Ten digits is too large for int so read the number as a 10-digit integer of type long and break the number into 
+//pieces using the operators / and %. A long is just like an int, but uses eight bytes to store the whole number instead of four bytes.
+
+//Answer 
+
+import java.util.Scanner;
+public class TollFreeCall
+{
+  public static void main(String[] args)
+  {
+   Scanner input = new Scanner(System.in);
+   
+   System.out.print("***** Toll Free Call Detector *****"); 
+   System.out.println("Enter ten digit number on a single line:");
+   long phone_number = input.nextLong();
+    
+   long bit1 = phone_number / 10000000;
+   long remaining = phone_number % 10000000;
+    
+   long bit2 = remaining / 10000;
+   long bit3 = remaining % 10000;
+    
+    if (bit1 == 800 || bit1 == 877 || bit1 == 866 || bit1 == 888)
+    {
+      System.out.println(bit1 + "-" + bit2 + "-" + bit3 + "is a toll-free number!");
+    }
+    else{
+      System.out.println(bit1 + "-" + bit2 + "-" + bit3 + "is not a toll-free number.");
+    }
+  }
+}
