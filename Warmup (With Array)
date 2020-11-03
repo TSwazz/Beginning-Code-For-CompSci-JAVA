@@ -1,0 +1,18 @@
+//Problem Parameters
+////Write a program that fills an 100 element array with random integers between 0 and 99, then prints out the contents of the array
+//Answer 
+
+import java.util.Scanner;
+public class WarmupArray
+{
+	public static void main(String[]args)
+	{ 
+		int array[] = new int[100];
+    for (int i = 0; i < array.length; i++)
+    {
+      array[i] = (int) (Math.random() * 100);
+      System.out.println("array [" +i+ "] = " +array[i]);
+    }
+	}
+}
+
