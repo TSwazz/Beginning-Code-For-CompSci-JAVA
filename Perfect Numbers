@@ -1,0 +1,33 @@
+//Problem Parameters
+//A number is called perfect if it equals the sum of its proper divisors (1 is considered a proper divisor). 
+//For example, 6 is a perfect number because 6 = 3+2+1. As with amicable numbers, the ancient Greeks attributed mystical 
+//powers to perfect numbers. Read more about amicable numbers here.
+//Write a program to find all perfect numbers between 2 and 10,000. There are not many.
+//Use for loops for this program.
+
+//Answer 
+
+public class PerfectNumbers
+{
+  public static void main(String args[])
+  {
+    System.out.print("The perfect numbers between 2 and 10,000 are:");
+    int min = 1; 
+    int max = 10000;
+    int sum = 0;
+    for (min = 1; min <= max; min++)
+    {
+       sum = 0; 
+    
+    for (int i = 1; i < min; i++){
+      if ((min % i) == 0) 
+        {
+          sum = sum + i;  
+        }
+    }
+    if (sum == min) {
+      System.out.println(sum);
+    }
+    }
+  }
+}
