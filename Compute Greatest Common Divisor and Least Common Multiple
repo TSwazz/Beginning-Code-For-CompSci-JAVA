@@ -1,0 +1,106 @@
+//Problem Parameters
+
+
+The greatest common divisor (gcd) of positive integers a and b is the largest positive integer that evenly divides both a and b. 
+For example the greatest commmon divisor of:
+15 and 25 is 5
+10 and 100 is 10
+8 and 19 is 1
+Euclid showed that if a >= b, the greatest common divisor of a and b is the same as the greatest common divisor of b and a % b.
+For example, the gcd of:
+a = 27 and b = 18 is the same as
+a = 18 and b = 9 (because 9 = 27 % 18) =
+a = 9 and b = 0 (because 0 = 18 % 9) =
+9
+For another example, the gcd of:
+a = 15 and b = 6 is the same as
+a = 6 and b = 3 (because 3 = 15 % 6) =
+a = 3 and b = 0 (because 0 = 6 % 3) =
+3
+For a final example, the gcd of:
+a = 11 and b = 5 is the same as
+a = 6 and b = 5 (because 6 = 11 % 5) =
+a = 5 and b = 1 (because 1 = 6 % 5) =
+a = 1 and b = 0 (because 0 = 5 % 1) =
+1
+Notice how each of these ends: b is 0 and the gcd is a.
+The least common multiple (lcm) of two numbers a and b is the smallest non-zero number that is a multiple of both a and b.
+For example the lcm of:
+5 and 3 is 15 (15 is the smallest multiple of both 5 and 3)
+9 and 6 is 18
+27 and 6 is 54
+20 and 4 is 20
+The lcm of a and b can be found as
+(a * b)/ (gcd of a and b)
+For example the lcm of:
+9 and 6 = (9 * 6) / (gcd of 9 and 6) = 54/3 = 18
+27 and 6 = (27 *6) / (gcd of 27 and 6) = 162/3 = 54
+20 and 4 = (20*4) / (gcd 20 and 4) = 80/4 = 20
+Write a program with two methods:
+public static int gcd (a,b) that returns the greatest common divisor of positive integers a and b
+public static int lcm (a,b) that returns the least common multiple of positive integers a and b
+Include a main method that tests these two methods. The main method should include a loop so that a user can repeat the tests.
+NOTE: The user can enter the integers in any order. The largest need not be first. However, when computing gcd (a,b), a must 
+be the larger integer. So before attempting to compute the gcd, your method must determine whether or not a is the larger. 
+If b happens to be larger than a, then switch the values in a and b. To do this switch you may need an extra temporary variable.
+
+
+//Answer 
+
+
+import java.util.Scanner;
+public class GcdLcm
+{
+  
+  //beginning of methods 
+  
+  //greatest common dvisor
+  public static int gcd (int a, int b) 
+  {
+    int gcd = 0; 
+    while (b != 0) 
+    {
+        	if(a > b)
+          {
+            a = a - b;
+          }
+            else
+          {
+            b = b - a;
+          } 
+        }
+    return a;
+  }
+
+  //least common multiple
+  public static int lcm (int a, int b)
+  {
+    int lcm = 0;
+    lcm = a * b / gcd(a,b);
+    
+    return lcm;
+  }
+  
+  //beginning of main program
+  public static void main(String[] args)
+  {
+     Scanner input = new Scanner(System.in);
+     System.out.println("**** Compute GCD/LCM  *****");
+    
+     int runAgain = 0;
+     do {
+     System.out.println("Enter two positive integers: ");
+     int a = input.nextInt();
+     int b = input.nextInt();
+       
+    
+     System.out.println("The gcd of " +a+ " and " +b+ " is " + gcd(a,b));
+     System.out.println("The lcm of " +a+ " and " +b+ " is " + lcm(a,b));
+    
+      System.out.println("Again (0=no,1=yes)?:");
+      runAgain = input.nextInt();
+    } while (runAgain == 1); 
+    
+     
+  }
+}
