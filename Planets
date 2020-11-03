@@ -1,0 +1,178 @@
+//Problem Parameters
+//Write a program that will allow the user to calculate his or her weight on any given planet in the solar system.
+//Thus, if your weight on Earth is 100 pounds then your weight on Mars is 100*0.38 = 38 pounds and your weight on Saturn is 100*1.32 = 132 pounds.
+//Use a switch statement for the menu
+//Use methods, one for each menu option at the very least.
+//Store the gravity data in an array of doubles indexed from 0 to 8 
+
+//Answer 
+
+//Just wanted to say I'm aware that this code could've been MUCH MUCH cleaner. For now I'm happy where its at because it runs fine lol
+
+import java.lang.Math;
+import java.util.Scanner;
+public class Planets
+{
+  //where methods for calculating on all planets begins 
+  
+  public static double userWeightOnMercury(double userWeight) //calculates user weight on Mercury
+  {
+    double weightOnMercury = userWeight * .39; 
+    return weightOnMercury;
+  }
+  
+   public static double userWeightOnVenus(double userWeight) //calculates user weight on Venus
+  {
+    double weightOnVenus = userWeight * 0.91; 
+    return weightOnVenus;
+  }
+  
+   public static double userWeightOnEarth(double userWeight) //Calculates user weight on Earth
+  {
+    double weightOnEarth = userWeight * 1.00; 
+    return weightOnEarth;
+  }
+  
+   public static double userWeightOnMars(double userWeight) //Calculates user weight on Mars
+  {
+    double weightOnMars = userWeight * 0.38; 
+    return weightOnMars;
+  }
+  
+   public static double userWeightOnJupiter(double userWeight) //Calculates user weight on Jupiter 
+  {
+    double weightOnJupiter = userWeight * 2.87; 
+    return weightOnJupiter;
+  }
+  
+   public static double userWeightOnSaturn(double userWeight)  //Calculates user weight on Saturn
+  {
+    double weightOnSaturn = userWeight * 1.32; 
+    return weightOnSaturn;
+  }
+  
+   public static double userWeightOnUranus(double userWeight)  //Calculates user weight on Uranus
+  {
+    double weightOnUranus = userWeight * 0.93; 
+    return weightOnUranus;
+  }
+  
+   public static double userWeightOnNeptune(double userWeight)  //Calculates user weight on Neptune
+  {
+    double weightOnNeptune = userWeight * 1.23; 
+    return weightOnNeptune;
+  }
+  
+   public static double userWeightOnPluto(double userWeight)  //Calculates user weight on Pluto
+  {
+    double weightOnPluto = userWeight * 0.03; 
+    return weightOnPluto;
+  }
+  
+  
+	public static void main(String[] args) 
+	{
+    Scanner input = new Scanner(System.in);
+    int choice = 1; 
+   do
+   {
+    
+    double[] gravity= { .39, .91, 1.00, 0.38, 2.87, 1.32, 0.93, 1.23, 0.03  };
+    String[] planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto" };
+    
+    
+    
+    System.out.println("***** Planet Calculator *****");
+    System.out.println("Enter 1 to find your weight on a given planet.");
+    System.out.println("Enter 2 to see your weight on all planets.");
+    System.out.println("Enter 3 to display all planets and gravity factors.");
+    System.out.println("Enter 0 to exit");
+   
+    
+    System.out.println("Choice (0=exit,1-3=action)?:");
+    choice = input.nextInt();
+   
+  switch(choice)
+  {
+    case 1: //weight on specific planet
+   
+      System.out.println("Enter your weight (in pounds) on Earth:");
+    double userWeight = input.nextDouble();
+   
+    System.out.println("Enter the code number of the planet you want: ");
+    int planetCode = input.nextInt();
+    if (planetCode == 0)
+    {
+     System.out.println("Your weight on " +planets[planetCode]+ " is " +(int) userWeightOnMercury(userWeight)+" pounds.");
+    }
+    else if (planetCode == 1)
+    {
+     System.out.println("Your weight on " +planets[planetCode]+ " is " +(int) userWeightOnVenus(userWeight)+" pounds.");
+    }
+     else if (planetCode == 2)
+    {
+     System.out.println("Your weight on " +planets[planetCode]+ " is " +(int) userWeightOnEarth(userWeight)+" pounds.");
+    }
+     else if (planetCode == 3)
+    {
+     System.out.println("Your weight on " +planets[planetCode]+ " is " +(int) userWeightOnMars(userWeight)+" pounds.");
+    }
+       else if (planetCode == 4)
+    {
+     System.out.println("Your weight on " +planets[planetCode]+ " is " +(int)userWeightOnJupiter(userWeight)+" pounds.");
+    }
+       else if (planetCode == 5)
+    {
+     System.out.println("Your weight on " +planets[planetCode]+ " is " +(int) userWeightOnSaturn(userWeight)+" pounds.");
+    }
+       else if (planetCode == 6)
+    {
+     System.out.println("Your weight on " +planets[planetCode]+ " is " +(int) userWeightOnUranus(userWeight)+" pounds.");
+    }
+       else if (planetCode == 7)
+    {
+     System.out.println("Your weight on " +planets[planetCode]+ " is " +(int) userWeightOnNeptune(userWeight)+" pounds.");
+    }
+       else if (planetCode == 8)
+    {
+     System.out.println("Your weight on " +planets[planetCode]+ " is " +(int) userWeightOnPluto(userWeight)+" pounds.");
+    }
+    break; 
+  
+    case 2: //weight on all planets
+   
+      System.out.println("Enter your weight (in pounds) on Earth:");
+    double userWeightOnAllPlanets = input.nextDouble();
+    System.out.println("0       " +planets[0]+ " "     +(int) userWeightOnMercury(userWeightOnAllPlanets));
+    System.out.println("1       " +planets[1]+ "   "   +(int) userWeightOnVenus(userWeightOnAllPlanets));
+    System.out.println("2       " +planets[2]+ "   "   +(int) userWeightOnEarth(userWeightOnAllPlanets));
+    System.out.println("3       " +planets[3]+ "    "  +(int) userWeightOnMars(userWeightOnAllPlanets));
+    System.out.println("4       " +planets[4]+ " "     +(int) userWeightOnJupiter(userWeightOnAllPlanets));
+    System.out.println("5       " +planets[5]+ "  "    +(int) userWeightOnSaturn(userWeightOnAllPlanets));
+    System.out.println("6       " +planets[6]+ "  "    +(int) userWeightOnUranus(userWeightOnAllPlanets));
+      System.out.println("7       " +planets[7]+ " "   +(int) userWeightOnNeptune(userWeightOnAllPlanets));
+    System.out.println("8       " +planets[8]+ "     " +(int) userWeightOnPluto(userWeightOnAllPlanets));
+    
+    break;
+      
+    case 3: //display all planets and gravity factors
+    
+    System.out.println("0       "+planets[0]+ " " +gravity[0]);
+    System.out.println("1       "+planets[1]+ "   " +gravity[1]);
+    System.out.println("2       "+planets[2]+ "   1.00");
+    System.out.println("3       "+planets[3]+ "    " +gravity[3]);
+    System.out.println("4       "+planets[4]+ " " +gravity[4]);
+    System.out.println("5       "+planets[5]+ "  " +gravity[5]);
+    System.out.println("6       "+planets[6]+ "  " +gravity[6]);
+    System.out.println("7       "+planets[7]+ " " +gravity[7]);
+    System.out.println("8       "+planets[8]+ "   " +gravity[8]);
+    break; 
+  } 
+   }while (choice !=0);
+    if (choice == 0)
+    {
+      System.out.println("Bye!");
+    }
+    
+  }
+}
