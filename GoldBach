@@ -1,0 +1,80 @@
+//Problem Parameters
+//A prime number is a positive integer which is greater than one and evenly divisible only by itself and one. 
+//For example, 2,3,5,7,11,13,17 are all prime numbers. For centuries, prime number have fascinated both professional and amateur mathematicians.
+//In 1742, mathematician Christian Golbach in a letter to fellow mathematician Leonhard Euler suggested (in slightly different terms) that 
+//every even integer greater than two can be expressed as the sum of two prime numbers. For example
+//4 = 2 + 2
+//6 = 3 + 3
+//8 = 3 + 5
+//10 = 3 + 7  and 
+//1,000,000 = 29 + 99971 
+//Euler replied that Goldbach’s conjecture did indeed seem plausible. However, neither Goldbach nor Euler were able to prove it.
+//Moreover, no one has ever been able to prove Goldbach’s Conjecture. As recently as 1998, Goldbach’s Conjecture was shown to be true 
+//for all even integers up to 4^1014.
+//In fact, in 2000, a million dollar prize had been offered to anyone who could prove Goldbach’s Conjecture. No one won the prize. 
+
+//Your assignment is to write a method
+//public static void goldbach(int n)
+//which accepts a value parameter n (an even positive integer greater than 2) prints two prime number p and q such that n = p+q. For example if n = 16 then the method should print:
+//16 = 3 + 13
+//You will also need a separate method to test whether a number is prime:
+//public static boolean isPrime(int n)
+//The program should repeat until the user decides to stop and it should also check whether or not the number supplied by the user is an even integer greater than 2.
+
+//Answer 
+
+import java.util.Scanner;
+public class Goldbach
+{
+  //beginning of main program 
+  
+  //method to do calculations 
+public static void goldbach(int n)
+{
+  for (int i = 2; i < n/2; i++)
+  {
+    if (isPrime(i) && isPrime(n-i))
+    {
+      System.out.println(n+ " = " +(n-i)+ " + " +i);
+      break;
+    }
+    //int difference = n - i; 
+  }
+}
+  
+  //method to test for prime number
+public static boolean isPrime(int n)
+{
+    for (int I = 2; I < n; I++)
+    {
+      if (n % I == 0)
+      return false; 
+    }  
+    return true; 
+}
+
+
+  
+  public static void main(String[] args)
+  {
+     Scanner input = new Scanner(System.in);
+     
+    int runAgain = 1;
+    while (runAgain == 1)
+    {
+      int n = 1;
+    while (n % 2 != 0 || n <= 2)
+    {
+      System.out.println("Enter an even positive integer greater than 2: ");
+      n = input.nextInt();
+    }
+      goldbach(n);
+     System.out.println("Again (0=no; 1=yes):?");
+     runAgain = input.nextInt(); 
+     if (runAgain == 0)
+     {
+       break;
+     }
+    }
+  }
+}
