@@ -1,0 +1,82 @@
+//Problem Parameters
+/*
+ * Instructions
+ *  Write a program that simulates flipping a coin 1000 times 
+ * and reports the number of runs of heads of length i, where i 
+ * ranges from one to the length of the longest sequence of heads.
+ */
+ 
+//Answer 
+
+import java.lang.Math;
+import java.util.Scanner;
+public class CoinFlipArray
+{    
+  public static void main(String [] args)
+  {
+    //0 = heads 
+    //1 = tails 
+    System.out.println("***** Coin Flip Simulation *****");
+    
+    int count = 0;
+    int simulatedFlips = 1000; 
+    int coin[] = new int[1000];
+    String s = "";
+    
+    //runs program 1000 times and displays everything properly
+    for (int i = 0; i < simulatedFlips; i++)
+    {
+      coin[i] = ((int) Math.round(Math.random() * 1)); 
+      if (coin[i] == 0)
+      {
+        s = s + "H";    
+      }
+      else 
+      {
+        s = s +"T"; 
+      }
+      
+   } 
+    int max = -10; 
+     for (int i = 0; i < simulatedFlips; i++)
+     {
+       if (s.charAt(i)=='H')
+       {
+         count++;      
+       }
+       
+       else
+       {
+         if (count > max)
+         {
+           max = count;
+         }
+         count = 0; 
+         
+       }
+     }
+    int runs[] = new int [max + 1];
+    for (int i = 0; i < simulatedFlips; i++)
+    {
+      if (s.charAt(i)=='H')
+       {
+         count++;      
+       }
+      else
+      {
+        runs[count]++;
+        count = 0; 
+      }
+    }
+    System.out.print(s);
+    
+    System.out.println("");   
+    System.out.println("#heads count");
+    System.out.println("");
+    for (int I = 1; I <runs.length; I++)
+    {
+      System.out.println(I+ " " +runs[I]);
+    }
+   
+	}
+}
