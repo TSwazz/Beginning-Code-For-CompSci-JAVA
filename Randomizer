@@ -1,0 +1,38 @@
+//Problem Parameters
+//Write a program that displays a list of numbers between 1 and N in random order WITH NO DUPLICATES.
+//Answer 
+
+import java.util.Scanner;
+import java.util.Random; 
+public class Randomizer
+{
+		public static void main(String[] args) 
+		{
+      Scanner input = new Scanner(System.in); 
+      System.out.println("***** Welcome to the Randomizer *****");
+      System.out.println("To display a list of random numbers between 1 and N enter an N:");
+      int num = input.nextInt();
+      
+      int randomNumbers[] = new int[num + 1];
+      
+       Random randomGenerator = new Random();
+
+        for (int i = 1; i <= num; i++)
+        {
+          randomNumbers[i] = i;
+        }
+          for (int j = 1; j <= num; j++)
+          {
+           int number = randomGenerator.nextInt(num) + 1;
+           int temp = randomNumbers[j];
+           randomNumbers[j] = randomNumbers[number];
+           randomNumbers[number] = temp; 
+          }
+        
+            for (int i = 1; i <= num; i++)
+            {
+              System.out.print(+randomNumbers[i]+ " ");
+            }
+    }
+          
+        }  
