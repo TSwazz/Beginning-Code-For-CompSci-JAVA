@@ -1,0 +1,47 @@
+//Problem Parameters
+//Write a program that simulates flipping a coin N times and reports the 
+//longest consecutive sequence of heads. The number N is supplied by the user.
+//Answer 
+
+import java.lang.Math;
+import java.util.Scanner;
+public class CoinFlip
+{
+  public static void main(String args[])
+  {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Enter number of tosses:");
+    int flips = input.nextInt();
+    int heads = 0;
+    int maxHeads = 0; 
+    
+    for (int i = 0; i < flips; i++)
+    {
+       if ((int) ( Math.random() + .5) == 0)
+       {
+          System.out.print(0);
+          heads++;
+       }
+       else
+       {
+          System.out.print(1);
+       if (heads > maxHeads)
+         {
+           maxHeads = heads;
+           heads = 0;
+         }
+       else
+       {
+           heads = 0;
+       }
+       }
+    }
+    if (heads > maxHeads)
+    {
+    maxHeads = heads;
+    heads = 0;
+    }
+      System.out.println("\nLongest sequence of heads is " +maxHeads);
+ 
+  }
+}
